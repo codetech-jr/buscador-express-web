@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next';
 import { Outfit, Inter } from 'next/font/google';
 import { Providers } from './providers';
+import { Navbar } from '@/components/Navbar';
 import './globals.css';
 
 const outfit = Outfit({
@@ -16,7 +17,6 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-
   title: 'Repuestos Luigi — Buscador de Repuestos para Motos | Charallave',
   description:
     'Encuentra repuestos para tu moto en Charallave. Bujías, filtros, cadenas, frenos y más. Precios en Bs y USD. Consulta disponibilidad por WhatsApp al instante.',
@@ -43,7 +43,10 @@ export default function RootLayout({
   return (
     <html lang="es" className={`${outfit.variable} ${inter.variable}`}>
       <body>
-        <Providers>{children}</Providers>
+        <Providers>
+          <Navbar />
+          {children}
+        </Providers>
       </body>
     </html>
   );
